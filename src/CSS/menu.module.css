@@ -1,0 +1,33 @@
+#menu {
+  display: flex;
+  box-shadow: 10px 10px 10px rgb(195, 49, 49);
+  position: fixed;
+  background-color: beige;
+  width: 100%;
+  justify-content: space-evenly;
+  z-index: 1;
+}
+#menu button {
+  padding: 10px 0;
+  border: none;
+  background: transparent;
+  transition: 0.3s ease-in-out;
+}
+#menu button:hover {
+  color: rgb(255, 7, 7);
+  text-shadow: 1px 1px 5px rgb(255, 1, 51);
+}
+@media (max-width: 480px) {
+  #menu button {
+    font-size: smaller;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  #menu button {
+    font-size: smaller;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+}
