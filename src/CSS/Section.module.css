@@ -9,6 +9,44 @@ section {
   justify-content: center;
   align-items: center;
 }
+#cambiarIdioma {
+  background-color: transparent;
+  font-weight: 700;
+  color: white;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  right: 15px;
+  top: 8%;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+  border: 2px solid black;
+}
+#cambiarIdioma::before {
+  position: absolute;
+  content: "";
+  background-color: white;
+  color: white;
+  width: 150px;
+  height: 200px;
+  z-index: -1;
+  border-radius: 50%;
+  top: 100%;
+  left: 100%;
+  transition: 0.5s all;
+}
+
+#cambiarIdioma:hover::before {
+  top: -30px;
+
+  left: -30px;
+}
+#cambiarIdioma:hover {
+  transition: 0.8s all;
+  color: black;
+}
+
 .color_change_5x {
   -webkit-animation: color-change-5x 3s linear infinite alternate both;
   animation: color-change-5x 3s linear infinite alternate both;
@@ -22,11 +60,28 @@ section {
   color: white;
   border: black 1px solid;
 }
+.titulo_animado {
+  color: transparent;
+  background: linear-gradient(-60deg, #ffa02b 40%, #75d6f1 40%);
+  background-clip: text;
+  background-size: 200%;
+  animation: text-animation 2s infinite linear;
+}
+@keyframes text-animation {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
 .shadow_pop_tr {
   -webkit-animation: shadow-pop-tr 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
   animation: shadow-pop-tr 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+  animation-delay: 0.5s;
 }
-
+/*linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% )*/
 .btn_section {
   height: 60px;
   width: 20%;
@@ -332,7 +387,7 @@ section {
 
 @media (max-width: 480px) {
   #section_cuadro {
-    width: 80%;
+    width: 82%;
   }
   #section_cuadro h1 {
     font-size: larger;

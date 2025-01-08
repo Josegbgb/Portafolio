@@ -2,11 +2,14 @@ import estilos from "../css/Section.module.css";
 import Escritor from "./Escritor";
 import { forwardRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const Section = forwardRef<HTMLDivElement>((_, ref) => {
+  const { t, i18n } = useTranslation(["idioma"]);
   const [isActive, setIsActive] = useState(false);
   const [contador, setContador] = useState(0);
   const [escribir, setEscribir] = useState(false);
+
   const mostrar = () => {
     setEscribir(!escribir);
   };
@@ -20,7 +23,16 @@ const Section = forwardRef<HTMLDivElement>((_, ref) => {
       setIsActive(false);
     }, 3000);
   };
-
+  const cambiarIdioma = (e: React.MouseEvent<HTMLButtonElement>) => {
+    let btn = e.currentTarget;
+    if (btn.textContent === "ES") {
+      i18n.changeLanguage("en");
+      btn.textContent = "EN";
+    } else {
+      i18n.changeLanguage("es");
+      btn.textContent = "ES";
+    }
+  };
   const abrirPdf = () => {
     window.open("cv.pdf", "_blank");
   };
@@ -31,13 +43,20 @@ const Section = forwardRef<HTMLDivElement>((_, ref) => {
       className={estilos.color_change_5x}
       ref={ref}
     >
+      <button id={estilos.cambiarIdioma} onClick={cambiarIdioma}>
+        ES
+      </button>
       <div id={estilos.section_cuadro} className={estilos.shadow_pop_tr}>
-        <motion.h1 onViewportEnter={mostrar} onViewportLeave={mostrar}>
+        <motion.h1
+          className={estilos.titulo_animado}
+          onViewportEnter={mostrar}
+          onViewportLeave={mostrar}
+        >
           {escribir && <Escritor escribir_text="Jose Gonzalez" />}
 
           <span className={estilos.cursor}></span>
         </motion.h1>
-        <h2>Estudiante de informatica y desarrollo web</h2>
+        <h2>{t("sectionTitle")}</h2>
         <button
           className={`${estilos.bounce_top} ${estilos.btn_section}`}
           onClick={abrirPdf}
@@ -55,7 +74,7 @@ const Section = forwardRef<HTMLDivElement>((_, ref) => {
           onClick={btn_enlaces}
           value={contador}
         >
-          <span>Contacto</span>
+          <span>{t("btnContact")}</span>
           <ul>
             <li>
               <a href="https://wa.me/584146243428" target="_blank">

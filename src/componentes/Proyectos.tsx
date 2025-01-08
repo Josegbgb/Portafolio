@@ -2,38 +2,37 @@ import estilos from "../css/Proyecto.module.css";
 
 import { forwardRef } from "react";
 import { motion } from "framer-motion";
-const proyectos = [
-  {
-    nombre: "Lista de actividades - responsive",
-    img: "/lista_actividades.PNG",
-    enlace: "https://josegbgb.github.io/ListaActividades/",
-    descripcion:
-      "Aplicacion web diseñada con html, css y javascript. Con el fin de llevar un control de actividades a realizar",
-  },
-  {
-    nombre: "Juego de memoria - responsive",
-    img: "/memoria.PNG",
-    enlace: "https://josegbgb.github.io/Memoria/",
-    descripcion:
-      "Juego de memoria diseñado con html, css y javascrip. El cual registra y muestra en pantalla los mejores tiempos  ",
-  },
-  {
-    nombre: "Personajes e historietas de marvel - responsive",
-    img: "/marvel.PNG",
-    enlace: "https://josegbgb.github.io/marvel/",
-    descripcion:
-      "Aplicacion web que consume la API de Marvel, incluye un buscador y simula un registro de usuario",
-  },
-  {
-    nombre: "Simulador de testimonios FreeCodeCamp - responsive",
-    img: "/testimonios.PNG",
-    enlace: "https://josegbgb.github.io/testimonios_freecodecamp/",
-    descripcion:
-      "Pagina web basada en los testimonios de FreeCodeCamp. Diseñada con react y css",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const Proyectos = forwardRef<HTMLDivElement>((_, ref) => {
+  const { t } = useTranslation(["idioma"]);
+
+  const proyectos = [
+    {
+      nombre: t("project1_name"),
+      img: "/Portafolio/lista_actividades.PNG",
+      enlace: "https://josegbgb.github.io/ListaActividades/",
+      descripcion: t("project1_description"),
+    },
+    {
+      nombre: t("project2_name"),
+      img: "/Portafolio/memoria.PNG",
+      enlace: "https://josegbgb.github.io/Memoria/",
+      descripcion: t("project2_description"),
+    },
+    {
+      nombre: t("project3_name"),
+      img: "/Portafolio/marvel.PNG",
+      enlace: "https://josegbgb.github.io/marvel/",
+      descripcion: t("project3_description"),
+    },
+    {
+      nombre: t("project4_name"),
+      img: "/Portafolio/testimonios.PNG",
+      enlace: "https://josegbgb.github.io/testimonios_freecodecamp/",
+      descripcion: t("project4_description"),
+    },
+  ];
   return (
     <motion.div
       initial={{ opacity: 0, rotateX: "30deg" }}
@@ -43,7 +42,7 @@ const Proyectos = forwardRef<HTMLDivElement>((_, ref) => {
       ref={ref}
     >
       <div id={estilos.proyectos_section}>
-        <h2>Proyectos realizados</h2>
+        <h2>{t("projectH2")}</h2>
         <div id={estilos.proyectos_container}>
           {proyectos.map((elemento) => (
             <div
@@ -66,7 +65,7 @@ const Proyectos = forwardRef<HTMLDivElement>((_, ref) => {
       </div>
 
       <footer>
-        <h2>Contacto</h2>
+        <h2>{t("footerH2")}</h2>
         <div id={estilos.container_footer}>
           <div className={estilos.footer_img}>
             <a
@@ -75,7 +74,7 @@ const Proyectos = forwardRef<HTMLDivElement>((_, ref) => {
               rel="noopener noreferrer"
               style={{ "--color": "#0072b1" } as React.CSSProperties}
             >
-              <img src="/whatsapp.png" alt="" />
+              <img src="/Portafolio/whatsapp.png" alt="" />
             </a>
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=josemiguelgb27@gmail.com"
@@ -83,7 +82,7 @@ const Proyectos = forwardRef<HTMLDivElement>((_, ref) => {
               rel="noopener noreferrer"
               style={{ "--color": "#E1306C" } as React.CSSProperties}
             >
-              <img src="/gmail.png" alt="" />
+              <img src="/Portafolio/gmail.png" alt="" />
             </a>
             <a
               href="https://github.com/Josegbgb"
@@ -91,14 +90,14 @@ const Proyectos = forwardRef<HTMLDivElement>((_, ref) => {
               rel="noopener noreferrer"
               style={{ "--color": "rgb(203, 200, 12)" } as React.CSSProperties}
             >
-              <img src="/github.png" alt="" />
+              <img src="/Portafolio/github.png" alt="" />
             </a>
           </div>
           <div className={estilos.footer_aside}>
-            <h5>Desarrollado por Jose Gonzalez</h5>
-            <img src="/react.png" alt="" />
-            <img src="/css.png" alt="" />
-            <img src="/bootstrap.png" alt="" />
+            <h5>{t("footerH5")}</h5>
+            <img src="/Portafolio/react.png" alt="" />
+            <img src="/Portafolio/css.png" alt="" />
+            <img src="/Portafolio/bootstrap.png" alt="" />
           </div>
         </div>
       </footer>

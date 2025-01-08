@@ -4,8 +4,10 @@ import Section from "./componentes/Section";
 import SectionSkills from "./componentes/SectionSkills";
 import Proyectos from "./componentes/Proyectos";
 import estilos from "./css/menu.module.css";
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const { t } = useTranslation(["idioma"]);
   const seccion1 = useRef(null);
   const seccion2 = useRef(null);
   const seccion3 = useRef(null);
@@ -23,10 +25,10 @@ function App() {
   return (
     <>
       <div id={estilos.menu}>
-        <button onClick={() => scroll(seccion1)}>Inicio</button>
-        <button onClick={() => scroll(seccion2)}>Acerca de mi</button>
-        <button onClick={() => scroll(seccion3)}>Habilidades</button>
-        <button onClick={() => scroll(seccion4)}>Proyectos</button>
+        <button onClick={() => scroll(seccion1)}>{t("btnMenu1")}</button>
+        <button onClick={() => scroll(seccion2)}>{t("btnMenu2")}</button>
+        <button onClick={() => scroll(seccion3)}>{t("btnMenu3")}</button>
+        <button onClick={() => scroll(seccion4)}>{t("btnMenu4")}</button>
       </div>
       <Section ref={seccion1} />
       <Card ref={seccion2} />
