@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Card from "./componentes/Card";
 import Section from "./componentes/Section";
 import SectionSkills from "./componentes/SectionSkills";
-import Proyectos from "./componentes/Proyectos";
+import Proyectos, { Footer } from "./componentes/Proyectos";
 import estilos from "./css/menu.module.css";
 import { useTranslation } from "react-i18next";
 
@@ -34,6 +34,7 @@ function App() {
       <Card ref={seccion2} />
       <SectionSkills ref={seccion3} />
       <Proyectos ref={seccion4} />
+      <Footer />
     </>
   );
 }

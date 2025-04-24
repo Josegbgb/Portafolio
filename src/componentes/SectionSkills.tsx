@@ -1,26 +1,32 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import estilos from "../css/skills.module.css";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import {
+  HTML5,
+  CSS,
+  JavaScript,
+  VbNet,
+  Bootstrap,
+  Motion,
+  GitHub,
+  IconR,
+  WordPress,
+} from "./icons/jsIcon";
+import Escritor from "./Escritor";
 
 const ImgContainer = () => {
   const { t } = useTranslation(["idioma"]);
-  const lenguaje = t("skillsH2");
-  const img_lenguajes = [
-    { img: "/Portafolio/html.png" },
-    { img: "/Portafolio/css.png" },
-    { img: "/Portafolio/js.png" },
-    { img: "/Portafolio/sql.png" },
-  ];
-  const img_librerias = [
-    { img: "/Portafolio/react.png" },
-    { img: "/Portafolio/bootstrap.png" },
-    { img: "/Portafolio/animista.png" },
-  ];
-
+  const [escritor, setEscritor] = useState(false);
   return (
     <>
-      <h1>{t("skillsH1")}</h1>
+      <motion.h1
+        onViewportEnter={() => setEscritor(!escritor)}
+        onViewportLeave={() => setEscritor(!escritor)}
+      >
+        {escritor && <Escritor escribir_text={t("skillsH1")} />}
+      </motion.h1>
+
       <h2
         style={{ "--color": "#E1306C" } as React.CSSProperties}
         className={estilos.titulos}
@@ -28,11 +34,15 @@ const ImgContainer = () => {
       >
         &nbsp;{t("skillsH2")}&nbsp;
       </h2>
+
       <div className={estilos.section_skills}>
-        {img_lenguajes.map((elemento) => (
-          <img src={elemento.img} alt="" className={estilos.imagenes} />
-        ))}
+        <HTML5 className={estilos.iconos} />
+        <CSS className={estilos.iconos} />
+        <JavaScript className={estilos.iconos} />
+        <img src="/Portafolio/sql.png" alt="" className={estilos.iconos} />
+        <VbNet className={estilos.iconos} />
       </div>
+
       <h2
         style={{ "--color": "gold" } as React.CSSProperties}
         className={estilos.titulos}
@@ -41,10 +51,11 @@ const ImgContainer = () => {
         &nbsp;{t("skillsH2_2")}&nbsp;
       </h2>
       <div className={estilos.section_skills}>
-        {img_librerias.map((elemento) => (
-          <img src={elemento.img} alt="" className={estilos.imagenes} />
-        ))}
+        <IconR className={estilos.iconos} />
+        <Motion className={estilos.iconos} />
+        <Bootstrap className={estilos.iconos} />
       </div>
+
       <h2
         style={{ "--color": "darkblue" } as React.CSSProperties}
         className={estilos.titulos}
@@ -53,13 +64,20 @@ const ImgContainer = () => {
         &nbsp;{t("skillsH2_3")}&nbsp;
       </h2>
       <div className={estilos.section_skills}>
-        <img src="/Portafolio/github.png" alt="" id={estilos.img_herramienta} />
+        <GitHub className={estilos.iconos} />
+        <img src="/Portafolio/vb.png" alt="" className={estilos.iconos} />
+        <WordPress className={estilos.iconos} />
       </div>
     </>
   );
 };
 
 const SectionSkills = forwardRef<HTMLDivElement>((_, ref) => {
+  const [mostrar, SetMostar] = useState(false);
+  const mostrarBack = () => {
+    SetMostar(!mostrar);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -67,6 +85,9 @@ const SectionSkills = forwardRef<HTMLDivElement>((_, ref) => {
       transition={{ duration: 0.8, ease: "circOut" }}
       id={estilos.skills_container}
       ref={ref}
+      onViewportEnter={mostrarBack}
+      onViewportLeave={mostrarBack}
+      className={mostrar ? estilos.bg_pan_top : ""}
     >
       <ImgContainer />
     </motion.div>

@@ -2,7 +2,8 @@
   display: flex;
   box-shadow: 10px 10px 10px rgb(195, 49, 49);
   position: fixed;
-  background-color: beige;
+  background-color: #eeedeb;
+
   width: 100%;
   justify-content: space-evenly;
   z-index: 2;
