@@ -20,23 +20,24 @@ const Proyectos = forwardRef<HTMLDivElement>((_, ref) => {
       nombre: t("project1_name"),
       img: "/Portafolio/lista_actividades.PNG",
       enlace: "https://josegbgb.github.io/ListaActividades/",
-      color: "rgba(51, 166, 168, 0.59)",
+      color: "rgba(193, 119, 34, 0.59)",
       descripcion: t("project1_description"),
     },
     {
       nombre: t("project2_name"),
       img: "/Portafolio/memoria.PNG",
-      color: "rgba(193, 119, 34, 0.59)",
+      color: "rgba(51, 166, 168, 0.59)",
+
       enlace: "https://josegbgb.github.io/Memoria/",
       descripcion: t("project2_description"),
-    },
+    } /*
     {
       nombre: t("project3_name"),
       img: "/Portafolio/marvel.PNG",
       enlace: "https://josegbgb.github.io/marvel/",
       color: "rgba(62, 18, 106, 0.59)",
       descripcion: t("project3_description"),
-    },
+    },*/,
     {
       nombre: t("project4_name"),
       img: "/Portafolio/testimonios.PNG",

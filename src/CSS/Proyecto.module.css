@@ -27,8 +27,9 @@ p {
 }
 
 .card_space {
-  background-color: rgba(197, 174, 46, 0.52) !important;
+  background-color: #eaeaea !important;
   border-radius: 0;
+  color: white;
   border: 4px solid#b22121 !important;
   box-shadow: 10px 10px 20px rgb(104, 103, 103);
   transition: all 0.2s;

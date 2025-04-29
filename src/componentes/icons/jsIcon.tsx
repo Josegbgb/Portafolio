@@ -1,6 +1,5 @@
 import type { SVGProps } from "react";
 import React from "react";
-import estilos from "../../CSS/skills.module.css";
 export const JavaScript = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
